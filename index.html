@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Your Typing</title>
+    <link rel="stylesheet" href="./public/css/styles.css" />
+    <script src="./public/js/app.js"></script>
+  </head>
+  <body>
+    <header>
+      <form id="actionsForm">
+        <section id="duration">
+          <optgroup id="durationOptions">
+            <option value="60">1 Minute</option>
+            <option value="180">3 Minute</option>
+            <option value="300">5 Minute</option>
+          </optgroup>
+        </section>
+        <section id="textType">
+          <optgroup id="textTypeOptions">
+            <option value="fables">Fables</option>
+          </optgroup>
+        </section>
+        <section id="textFiles">
+          <optgroup id="textFilesOptions">
+            <option value="0">The Wolf and The Lamb</option>
+          </optgroup>
+        </section>
+        <section id="options">
+          <label for="forceCorrectionCheckbox">Force Correction</label>
+          <input type="checkbox" id="forceCorrectionCheckbox" />
+        </section>
+        <button id="resetBtn">Reset</button>
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+      </form>
+    </header>
+    <main>
+      <section id="textScreen">
+        This is the fable of: The Wolf and The Lamb
+      </section>
+      <section id="textInputSection">
+        <label for="textInput">You can type below: </label>
+        <input type="text" id="textInput" />
+      </section>
+    </main>
+    <div id="resultsDiv">
+      <section id="resultsWpm"></section>
+      <section id="wrongWords"></section>
+      <section id="totalResults"></section>
+    </div>
+    <footer>Nicolas Caballero - <span id="year"></span> - All Rights Reserved</footer>
+  </body>
+</html>
