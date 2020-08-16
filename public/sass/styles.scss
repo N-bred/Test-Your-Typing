@@ -1,7 +1,8 @@
 $red: #f00;
 $green: #0f0;
 $yellow: #ff0;
-
+$blue: #00f;
+$grey: #666;
 *,
 *::before,
 *::after {
@@ -26,6 +27,11 @@ body {
   border-radius: 5px;
   background: #fff;
   padding: 2.5rem;
+}
+
+.grey {
+  background: $grey;
+  color: #fff;
 }
 
 header {
@@ -141,6 +147,38 @@ main {
       height: 5rem;
       padding: 0 2rem;
       border: 1px solid #444;
+    }
+  }
+}
+
+.resultsDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  section {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    text-align: center;
+    padding: 2rem;
+    height: 15rem;
+    flex: 0 0 30%;
+    word-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    &.red {
+      background: lighten($red, 35);
+      color: darken($red, 20);
+    }
+    &.green {
+      background: lighten($green, 35);
+      color: darken($green, 20);
+    }
+    &.blue {
+      background: lighten($blue, 35);
+      color: darken($blue, 20);
     }
   }
 }

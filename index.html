@@ -52,10 +52,16 @@
           <input type="text" id="textInput" class="textInput" />
         </section>
       </main>
-      <div id="resultsDiv">
-        <section id="resultsWpm"></section>
-        <section id="wrongWords"></section>
-        <section id="totalResults"></section>
+      <div id="resultsDiv" class="resultsDiv">
+        <section id="resultsWpm" class="blue">
+          <p>You got <span id="numberOfWordsRight"></span> right, out of <span id="numberOfWordsTotal"></span> words</p>
+        </section>
+        <section id="wrongWords" class="red">
+          <p>You got <span id="numberOfWordsWrong"></span> wrong, out of <span id="numberOfWordsTotal"></span> words</p>
+        </section>
+        <section id="totalResults" class="green">
+          <p>Based on the results, you can type about <span id="wordsPerMinute"></span> WPM</p>
+        </section>
       </div>
     </div>
     <footer>Nicolas Caballero - <span id="year"></span> - All Rights Reserved</footer>
