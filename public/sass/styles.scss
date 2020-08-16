@@ -191,6 +191,17 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3rem;
+  height: 4rem;
   width: 100%;
+
+  a {
+    text-decoration: none;
+    color: #444;
+
+    &:hover {
+      color: rgb(15, 150, 228);
+    }
+
+    border-bottom: 0.3rem solid rgb(15, 150, 228);
+  }
 }
