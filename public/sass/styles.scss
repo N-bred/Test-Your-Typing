@@ -29,75 +29,118 @@ body {
 }
 
 header {
+  .actionsForm {
+    display: flex;
+  }
+
+  .actionsForm section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: calc(20% - 2.5rem);
+    margin: 0 1.5rem;
+  }
+
+  .actionsForm section > * {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  input[type='checkbox'] {
+    width: auto;
+  }
+
+  button,
+  input[type='checkbox'] {
+    cursor: pointer;
+  }
+
+  button {
+    border: none;
+    border-radius: 0;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+
+    &.red {
+      background: lighten($red, 25);
+      color: #fff;
+      &:hover {
+        background: lighten($red, 5);
+      }
+      &:active {
+        background: darken($red, 5);
+      }
+    }
+
+    &.green {
+      background: lighten($green, 25);
+      &:hover {
+        background: lighten($green, 5);
+      }
+      &:active {
+        background: darken($green, 5);
+      }
+    }
+
+    &.yellow {
+      background: lighten($yellow, 25);
+      &:hover {
+        background: lighten($yellow, 5);
+      }
+      &:active {
+        background: darken($yellow, 5);
+      }
+    }
+
+    &:active {
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    }
+  }
 }
 
-.actionsForm {
-  display: flex;
-}
-
-.actionsForm section {
+main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: calc(20% - 2.5rem);
-  margin: 0 1.5rem;
-}
+  margin: 2.5rem 0;
 
-.actionsForm section > * {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin: 0.5rem 0;
-}
+  section {
+    flex-basis: 100%;
+  }
 
-input[type='checkbox'] {
-  width: auto;
-}
+  div,
+  section,
+  input {
+    margin: 0.5rem 0;
+    border-radius: 5px;
+  }
 
-button,
-input[type='checkbox'] {
-  cursor: pointer;
-}
+  .textScreen,
+  .textInputSection {
+    display: flex;
+    flex-wrap: wrap;
 
-button {
-  border: none;
-  border-radius: 0;
-  border-radius: 5px;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-
-  &.red {
-    background: lighten($red, 25);
-    color: #fff;
-    &:hover {
-      background: lighten($red, 5);
-    }
-    &:active {
-      background: darken($red, 5);
+    & > * {
+      flex-basis: 100%;
     }
   }
 
-  &.green {
-    background: lighten($green, 25);
-    &:hover {
-      background: lighten($green, 5);
-    }
-    &:active {
-      background: darken($green, 5);
-    }
-  }
-
-  &.yellow {
-    background: lighten($yellow, 25);
-    &:hover {
-      background: lighten($yellow, 5);
-    }
-    &:active {
-      background: darken($yellow, 5);
+  .textScreen {
+    .textContainer {
+      border: 1px solid #444;
+      padding: 2.5rem;
+      max-height: 20rem;
+      overflow-y: scroll;
     }
   }
 
-  &:active {
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+  .textInputSection {
+    .textInput {
+      height: 5rem;
+      padding: 0 2rem;
+      border: 1px solid #444;
+    }
   }
 }
