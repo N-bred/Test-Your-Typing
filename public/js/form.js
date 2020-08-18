@@ -1,21 +1,16 @@
-const durationOptions = document.getElementById('durationOptions')
-const textTypeOptions = document.getElementById('textTypeOptions')
-const textFilesOptions = document.getElementById('textFilesOptions')
-const forceCorrectionCheckbox = document.getElementById('forceCorrectionCheckbox')
-const startBtn = document.getElementById('startBtn')
-const resetBtn = document.getElementById('resetBtn')
-const stopBtn = document.getElementById('stopBtn')
-
 durationOptions.addEventListener('change', (e) => {
   duration = getSelectedOption(e.target)
 })
 
-textTypeOptions.addEventListener('change', (e) => {
+textTypeOptions.addEventListener('change', async (e) => {
   genre = getSelectedOption(e.target)
+  await loadTextFilesIntoUI(genre)
+  await fetchText(genre, 0)
 })
 
-textFilesOptions.addEventListener('change', (e) => {
-  file = getSelectedOption(e.target)
+textFilesOptions.addEventListener('change', async (e) => {
+  fileId = getSelectedOption(e.target)
+  await fetchText(genre, fileId)
 })
 
 forceCorrectionCheckbox.addEventListener('change', (e) => {

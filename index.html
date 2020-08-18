@@ -6,6 +6,7 @@
     <title>Test Your Typing</title>
     <link rel="stylesheet" href="./public/css/styles.css" />
     <script src="./public/js/utils.js" defer></script>
+    <script src="./public/js/ui.js" defer></script>
     <script src="./public/js/app.js" defer></script>
     <script src="./public/js/form.js" defer></script>
     <script src="./public/js/footer.js" defer></script>
@@ -24,15 +25,11 @@
           </section>
           <section id="textType">
             <label for="textTypeOptions"> Text Genre</label>
-            <select id="textTypeOptions">
-              <option value="fables">Fables</option>
-            </select>
+            <select id="textTypeOptions"> </select>
           </section>
           <section id="textFiles">
             <label for="textFilesOptions">Available Texts</label>
-            <select id="textFilesOptions">
-              <option value="0">The Wolf and The Lamb</option>
-            </select>
+            <select id="textFilesOptions"> </select>
           </section>
           <section id="options">
             <label for="forceCorrectionCheckbox">Force Correction</label>
@@ -47,7 +44,7 @@
       </header>
       <main>
         <section id="textScreen" class="textScreen">
-          <div id="textTitle" class="title">This is the fable of: The Wolf and The Lamb</div>
+          <div id="textTitle" class="title"></div>
           <div id="textContainer" class="textContainer">Some text here</div>
         </section>
         <section id="textInputSection" class="textInputSection">
