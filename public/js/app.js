@@ -1,7 +1,10 @@
 let duration = getSelectedOption(durationOptions)
 let genre
 let fileId
-let forceCorrection = false
+let fileText = []
+let correctWords = []
+let wrongWords = []
+let textInContainer = ''
 
 const stateOfApplication = {
   playing: false,
@@ -46,6 +49,8 @@ async function fetchText(genre, id) {
 
   textContainerTitle.innerText = `This is the ${formatName(genre)} of: ${textFile.title}`
   textContainer.innerText = textFile.text
+  textInContainer = textContainer.innerHTML
+  fileText = textFile.text.split('\n').map((row) => row.trim().split(' '))
   return
 }
 
@@ -53,6 +58,7 @@ async function main() {
   await loadTextGenresIntoUI()
   genre = getSelectedOption(textTypeOptions)
   fileId = getSelectedOption(textFilesOptions)
+  textInput.value = ''
   fetchText(genre, fileId)
 }
 

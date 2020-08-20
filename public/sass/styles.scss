@@ -44,7 +44,7 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: calc(20% - 2.5rem);
+    width: calc(25% - 2.5rem);
     margin: 0 1.5rem;
   }
 
@@ -204,4 +204,12 @@ footer {
 
     border-bottom: 0.3rem solid rgb(15, 150, 228);
   }
+}
+
+.right {
+  background: lighten($green, 35);
+}
+
+.wrong {
+  background: lighten($red, 35);
 }

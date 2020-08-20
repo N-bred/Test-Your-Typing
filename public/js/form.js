@@ -13,10 +13,6 @@ textFilesOptions.addEventListener('change', async (e) => {
   await fetchText(genre, fileId)
 })
 
-forceCorrectionCheckbox.addEventListener('change', (e) => {
-  forceCorrection = e.target.checked
-})
-
 startBtn.addEventListener('click', (e) => {
   e.preventDefault()
   stateOfApplication.playing = true
