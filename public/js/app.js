@@ -3,8 +3,11 @@ let genre
 let fileId
 let fileText = []
 let correctWords = []
+let correctCharacters = 0
 let wrongWords = []
+let wrongCharacters = 0
 let textInContainer = ''
+let totalCharacters = 0
 
 const stateOfApplication = {
   playing: false,
@@ -50,6 +53,7 @@ async function fetchText(genre, id) {
   textContainerTitle.innerText = `This is the ${formatName(genre)} of: ${textFile.title}`
   textContainer.innerText = textFile.text
   textInContainer = textContainer.innerHTML
+  totalCharacters = textFile.text.split('').length
   fileText = textFile.text.split('\n').map((row) => row.trim().split(' '))
   return
 }

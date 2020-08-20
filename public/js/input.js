@@ -3,18 +3,11 @@ let rowIndex = 0
 let wordIndex = 0
 let wordIndex2 = 0
 
-const modifyHtmlInContainer = (key, word) => {
-  if (key === word[wordIndex]) {
-    textContainer.innerHTML =
-      textInContainer.substring(0, wordIndex2) +
-      addCssClass(word[wordIndex], 'right') +
-      textInContainer.substring(wordIndex2 + 1)
-  } else {
-    textContainer.innerHTML =
-      textInContainer.substring(0, wordIndex2) +
-      addCssClass(word[wordIndex], 'wrong') +
-      textInContainer.substring(wordIndex2 + 1)
-  }
+const modifyHtmlInContainer = (word, className) => {
+  textContainer.innerHTML =
+    textInContainer.substring(0, wordIndex2) +
+    addCssClass(word[wordIndex], className) +
+    textInContainer.substring(wordIndex2 + 1)
 }
 
 function validateInput(e) {
@@ -38,7 +31,13 @@ function validateInput(e) {
     wordIndex--
     wordIndex2--
   } else {
-    modifyHtmlInContainer(key, word)
+    if (key === word[wordIndex]) {
+      modifyHtmlInContainer(word, 'right')
+      correctCharacters++
+    } else {
+      modifyHtmlInContainer(word, 'wrong')
+      wrongCharacters++
+    }
     wordIndex++
     wordIndex2++
   }
