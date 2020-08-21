@@ -9,6 +9,18 @@ function resetState() {
   wordIndex = 0
   wordIndex2 = 0
   textInput.value = ''
+  stateOfApplication.started = false
+  stateOfApplication.playing = false
+  timerCount.innerText = ''
+  if (interval) clearInterval(interval)
+  wrongWordsResultsContainer.innerText = ''
+  totalResultsWMPContainer.innerText = ''
+  totalWordsResultsContainer.innerText = ''
+  accuracyContainer.innerText = ''
+  correctWords = []
+  wrongWords = []
+  wrongCharacters = 0
+  totalTypedCharacters = 0
 }
 
 const modifyHtmlInContainer = (word, className) => {
@@ -46,6 +58,7 @@ function validateInput(e) {
       modifyHtmlInContainer(word, 'wrong')
       wrongCharacters++
     }
+    totalTypedCharacters++
     wordIndex++
     wordIndex2++
   }

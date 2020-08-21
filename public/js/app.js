@@ -8,6 +8,7 @@ let wrongWords = []
 let wrongCharacters = 0
 let textInContainer = ''
 let totalCharacters = 0
+let totalTypedCharacters = 0
 let interval
 const stateOfApplication = {
   playing: false,
@@ -17,11 +18,13 @@ const stateOfApplication = {
 function activateTimer() {
   let time = 0
   interval = setInterval(() => {
-    if (time < duration * 1000) {
+    if (time <= duration * 1000) {
       timerCount.innerText = `${secondsToMinutes(duration - time / 1000)} Minutes`
     } else {
       stateOfApplication.started = false
       stateOfApplication.playing = false
+      showResults()
+      resetState()
       clearInterval(interval)
     }
 

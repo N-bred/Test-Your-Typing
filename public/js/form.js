@@ -24,8 +24,6 @@ resetBtn.addEventListener('click', (e) => {
     stateOfApplication.playing = false
     stateOfApplication.started = false
 
-    clearInterval(interval)
-    timerCount.innerText = ''
     fetchText(genre, fileId)
     resetState()
 
@@ -37,10 +35,7 @@ resetBtn.addEventListener('click', (e) => {
 
 stopBtn.addEventListener('click', (e) => {
   e.preventDefault()
-  clearInterval(interval)
-  timerCount.innerText = ''
+
   fetchText(genre, fileId)
   resetState()
-  stateOfApplication.started = false
-  stateOfApplication.playing = false
 })
