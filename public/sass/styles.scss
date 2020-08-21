@@ -123,7 +123,6 @@ main {
     border-radius: 5px;
   }
 
-  .textScreen,
   .textInputSection {
     display: flex;
     flex-wrap: wrap;
@@ -134,7 +133,17 @@ main {
   }
 
   .textScreen {
+    display: flex;
+    flex-wrap: wrap;
+
+    .timerCount {
+      flex-basis: 10%;
+    }
+    .title {
+      flex-basis: 90%;
+    }
     .textContainer {
+      flex-basis: 100%;
       border: 1px solid #444;
       padding: 2.5rem;
       max-height: 20rem;

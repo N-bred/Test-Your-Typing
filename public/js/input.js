@@ -3,6 +3,14 @@ let rowIndex = 0
 let wordIndex = 0
 let wordIndex2 = 0
 
+function resetState() {
+  colIndex = 0
+  rowIndex = 0
+  wordIndex = 0
+  wordIndex2 = 0
+  textInput.value = ''
+}
+
 const modifyHtmlInContainer = (word, className) => {
   textContainer.innerHTML =
     textInContainer.substring(0, wordIndex2) +
@@ -43,4 +51,21 @@ function validateInput(e) {
   }
 }
 
-textInput.addEventListener('keyup', validateInput)
+textInput.addEventListener('keydown', (e) => {
+  if (!stateOfApplication.playing) {
+    e.preventDefault()
+  }
+})
+
+textInput.addEventListener('keyup', (e) => {
+  if (stateOfApplication.playing) {
+    if (!stateOfApplication.started) {
+      stateOfApplication.started = true
+      activateTimer()
+    }
+
+    if (stateOfApplication.started) {
+      validateInput(e)
+    }
+  }
+})

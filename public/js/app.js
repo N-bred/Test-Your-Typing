@@ -1,4 +1,4 @@
-let duration = getSelectedOption(durationOptions)
+let duration = Number(getSelectedOption(durationOptions))
 let genre
 let fileId
 let fileText = []
@@ -8,10 +8,25 @@ let wrongWords = []
 let wrongCharacters = 0
 let textInContainer = ''
 let totalCharacters = 0
-
+let interval
 const stateOfApplication = {
   playing: false,
   started: false,
+}
+
+function activateTimer() {
+  let time = 0
+  interval = setInterval(() => {
+    if (time < duration * 1000) {
+      timerCount.innerText = `${secondsToMinutes(duration - time / 1000)} Minutes`
+    } else {
+      stateOfApplication.started = false
+      stateOfApplication.playing = false
+      clearInterval(interval)
+    }
+
+    time += 1000
+  }, 1000)
 }
 
 async function loadTextFilesIntoUI(genre) {
