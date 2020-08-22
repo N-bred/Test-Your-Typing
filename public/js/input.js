@@ -1,30 +1,3 @@
-let wordIndex = 0
-
-function resetState() {
-  wordIndex = 0
-  wordIndex2 = 0
-  textInput.value = ''
-  stateOfApplication.started = false
-  stateOfApplication.playing = false
-  timerCount.innerText = ''
-  if (interval) clearInterval(interval)
-  correctWordsResultsContainer.innerText = ''
-  wrongWordsResultsContainer.innerText = ''
-  totalResultsWMPContainer.innerText = ''
-  totalWordsResultsContainer.forEach((element) => {
-    element.innerText = ''
-  })
-  accuracyContainer.innerText = ''
-  correctCharacters = 0
-  wrongCharacters = 0
-  totalTypedCharacters = 0
-}
-
-const modifyHtmlInContainer = (word, className) => {
-  textContainer.innerHTML =
-    fileText.substring(0, wordIndex) + addCssClass(word, className) + fileText.substring(wordIndex + 1)
-}
-
 function validateInput(e) {
   if (checkMultipleOptions(e.keyCode, [16, 17, 20, 13])) return
 
@@ -33,15 +6,15 @@ function validateInput(e) {
   if (keyCode === 8) {
     wordIndex--
     correctCharacters--
-    modifyHtmlInContainer(fileText[wordIndex], 'right')
+    textContainer.innerHTML = modifyHtmlInContainer(fileText, fileText[wordIndex], 'right', wordIndex)
     return
   }
 
   if (key === fileText[wordIndex]) {
-    modifyHtmlInContainer(fileText[wordIndex], 'right')
+    textContainer.innerHTML = modifyHtmlInContainer(fileText, fileText[wordIndex], 'right', wordIndex)
     correctCharacters++
   } else {
-    modifyHtmlInContainer(fileText[wordIndex], 'wrong')
+    textContainer.innerHTML = modifyHtmlInContainer(fileText, fileText[wordIndex], 'wrong', wordIndex)
     wrongCharacters++
   }
 

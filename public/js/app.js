@@ -1,19 +1,37 @@
 let duration = Number(getSelectedOption(durationOptions))
 let genre
 let fileId
-let fileTextArray = []
 let fileText = ''
-let correctWords = []
 let correctCharacters = 0
-let wrongWords = []
 let wrongCharacters = 0
 let textInContainer = ''
 let totalCharacters = 0
 let totalTypedCharacters = 0
 let interval
+let wordIndex = 0
+
 const stateOfApplication = {
   playing: false,
   started: false,
+}
+
+function resetState() {
+  wordIndex = 0
+  textInput.value = ''
+  stateOfApplication.started = false
+  stateOfApplication.playing = false
+  timerCount.innerText = ''
+  if (interval) clearInterval(interval)
+  correctCharactersResultsContainer.innerText = ''
+  wrongCharactersResultsContainer.innerText = ''
+  totalResultsWMPContainer.innerText = ''
+  totalCharactersResultsContainer.forEach((element) => {
+    element.innerText = ''
+  })
+  accuracyContainer.innerText = ''
+  correctCharacters = 0
+  wrongCharacters = 0
+  totalTypedCharacters = 0
 }
 
 function activateTimer() {
@@ -69,11 +87,10 @@ async function fetchText(genre, id) {
   const textFile = res.find((file) => file.id === Number(id))
 
   textContainerTitle.innerText = `This is the ${formatName(genre)} of: ${textFile.title}`
+  fileText = textFile.text
   textContainer.innerText = textFile.text
   textInContainer = textContainer.innerHTML
   totalCharacters = textFile.text.split('').length
-  fileTextArray = textFile.text.split(' ')
-  fileText = textFile.text
   return
 }
 
