@@ -13,5 +13,6 @@ function showResults() {
   const wpm = ~~(totalTypedCharacters / 5 - wrongCharacters) / (duration / 60)
   const accuracy = ~~((correctCharacters / totalTypedCharacters) * 100)
   totalResultsWMPContainer.innerText = wpm
+
   accuracyContainer.innerText = accuracy
 }

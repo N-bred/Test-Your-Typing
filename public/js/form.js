@@ -15,6 +15,7 @@ textFilesOptions.addEventListener('change', async (e) => {
 
 startBtn.addEventListener('click', (e) => {
   e.preventDefault()
+  resetState()
   stateOfApplication.playing = true
 })
 

@@ -24,7 +24,6 @@ function activateTimer() {
       stateOfApplication.started = false
       stateOfApplication.playing = false
       showResults()
-      resetState()
       clearInterval(interval)
     }
 

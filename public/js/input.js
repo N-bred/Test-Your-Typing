@@ -13,9 +13,12 @@ function resetState() {
   stateOfApplication.playing = false
   timerCount.innerText = ''
   if (interval) clearInterval(interval)
+  correctWordsResultsContainer.innerText = ''
   wrongWordsResultsContainer.innerText = ''
   totalResultsWMPContainer.innerText = ''
-  totalWordsResultsContainer.innerText = ''
+  totalWordsResultsContainer.forEach((element) => {
+    element.innerText = ''
+  })
   accuracyContainer.innerText = ''
   correctWords = []
   wrongWords = []
