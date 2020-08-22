@@ -1,7 +1,8 @@
 let duration = Number(getSelectedOption(durationOptions))
 let genre
 let fileId
-let fileText = []
+let fileTextArray = []
+let fileText = ''
 let correctWords = []
 let correctCharacters = 0
 let wrongWords = []
@@ -71,7 +72,8 @@ async function fetchText(genre, id) {
   textContainer.innerText = textFile.text
   textInContainer = textContainer.innerHTML
   totalCharacters = textFile.text.split('').length
-  fileText = textFile.text.split('\n').map((row) => row.trim().split(' '))
+  fileTextArray = textFile.text.split(' ')
+  fileText = textFile.text
   return
 }
 
