@@ -52,7 +52,7 @@ function activateTimer() {
 
 async function loadTextFilesIntoUI(genre) {
   textFilesOptions.innerHTML = ''
-  const textFilesRequest = await fetch(`../resources/english/${genre.toLowerCase()}.json`)
+  const textFilesRequest = await fetch(`./resources/english/${genre.toLowerCase()}.json`)
   const textFilesResponse = await textFilesRequest.json()
 
   textFilesResponse.forEach((textFile) => {
@@ -66,7 +66,7 @@ async function loadTextFilesIntoUI(genre) {
 }
 
 async function loadTextGenresIntoUI() {
-  const req = await fetch('../resources/available.json')
+  const req = await fetch('./resources/available.json')
   const res = await req.json()
   res.genres.forEach((genre) => {
     const option = document.createElement('option')
@@ -81,7 +81,7 @@ async function loadTextGenresIntoUI() {
 }
 
 async function fetchText(genre, id) {
-  const req = await fetch(`../resources/english/${genre}.json`)
+  const req = await fetch(`./resources/english/${genre}.json`)
   const res = await req.json()
 
   const textFile = res.find((file) => file.id === Number(id))
